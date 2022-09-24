@@ -1,0 +1,21 @@
+- hosts: SQA-Ring
+  become: yes
+  gather_facts: yes
+
+
+  tasks:
+    - name : copy the files
+      ansible.builtin.copy:
+        src: files_delete.sh
+        dest: /root/
+        owner: root
+        group: root
+        mode: '777'
+
+    - name: copy crontab file
+      ansible.builtin.cron:
+        job: "/usr/bin/sh /root/files_delete.sh"
+        user: root
+        name: "ws_cleanup"
+        hour: "*/12"
+        minute: "0"

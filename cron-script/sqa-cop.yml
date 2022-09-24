@@ -1,0 +1,13 @@
+- hosts: SQA-Ring
+  become: yes
+  gather_facts: yes
+
+
+  tasks:
+    - name : copy the files
+      ansible.builtin.copy:
+        src: files_delete.sh
+        dest: /root/
+        owner: root
+        group: root
+        mode: '777'

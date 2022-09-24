@@ -1,0 +1,17 @@
+- hosts: all
+  become: yes
+  gather_facts: yes
+
+  vars:
+    ansible_ssh_private_key_file: "/home/saminath/.ssh/id_rsa"
+
+  tasks:
+  
+   
+    - name : copy the files
+      ansible.builtin.copy:
+        src: /home/saminath/cron-script/
+        dest: /root/cron-script/
+        owner: root
+        group: root
+        mode: '777'
