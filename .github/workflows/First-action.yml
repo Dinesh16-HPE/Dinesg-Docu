@@ -1,0 +1,10 @@
+name: My Frist Github action
+on: workflow_dispatch
+jobs:
+  First-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print Greeting
+        run: echo "HI Guru"
+      - name: print Greeting
+        run: echo "Good Morning"
